@@ -1,11 +1,26 @@
-<head>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="/datamaps.world.min.js"></script>
-<script src = "http://datamaps.github.io/scripts/0.4.4/datamaps.world.min.js"></script>
-</head>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+  <div id="container1" style="position: relative; width: 80%; height: 450px; border:2px solid black"></div>
 
-<div id="container" style="position: relative; width: 800px; height: 400px;"></div>
-<script>
-    var map = new Datamap({element: document.getElementById('container')});
-</script>
+  <script>
+    var map = new Datamap({
+      element: document.getElementById('container1'),
+      scope: 'world',
+      fills:{
+        defaultFill: '#000000'
+      }
+    })
+
+    map.arc([
+      {
+        origin: {latitude: 40.6, longitude: 73.3}, 
+        destination: {latitude: 37.7, longitude: -122.3} 
+      }
+    ], {strokeWidth: 1, arcSharpness: 1.4});
+
+  </script>
+</body>
